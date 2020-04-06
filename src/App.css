@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+  background-color: blue;
+}
+
+body {
+  background-color: brown;
+  color: wheat;
+  position: relative;
+  margin: 0;
+  display: block;
+}
+
+.navbar {
+  border: 5px solid burlywood;
+}
+
+.container {
+  position: relative;
+  margin: auto;
+  top: 5em;
+  width: 20em;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+.todoItems_container {
+  position: relative;
+  height: 200px;
+  border: black 2px solid;
+}
