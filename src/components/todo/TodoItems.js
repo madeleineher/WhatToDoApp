@@ -8,11 +8,30 @@ const TodoItems = () => {
 
   return (
     <div className='todoItems_container'>
-      <p>hello!</p>
       {todos.length > 0 ? (
-        todos.map((todo) => <p>{todo.todoStr}</p>) // need to add key here ?
+        todos.map((todo) => (
+          <div key={todo.id} className='todoItems__item'>
+            <div>
+              <h5 className='todoItems__str'>{todo.todoStr}</h5>
+            </div>
+            <div>
+              <form className='todoItems__form'>
+                <input
+                  className='todoItem__buttons button'
+                  value='Completed'
+                  type='submit'
+                />
+                <input
+                  className='todoItem__buttons button'
+                  value='Delete'
+                  type='submit'
+                />
+              </form>
+            </div>
+          </div>
+        ))
       ) : (
-        <h1>ADD A TODO!</h1>
+        <h1 className='todoItems__header'>ADD A TODO!</h1>
       )}
     </div>
   );

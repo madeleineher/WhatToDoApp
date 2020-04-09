@@ -4,7 +4,7 @@ import TodoItems from "./TodoItems";
 
 const Todos = () => {
   return (
-    <div>
+    <div className='container'>
       <TodoItems />
       <TodoForm />
     </div>

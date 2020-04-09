@@ -1,31 +1,207 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* my custom properties */
+  font-family: "Futura", Trebuchet, Arial, sans-serif;
+  --ff-primary: "Futura", sans-serif;
+  --ff-secondary: "Quicksand", sans-serif;
+
+  --fw-reg: 400;
+  --fw-bold: 900;
+
+  --clr-green: rgb(111, 156, 111);
+  --clr-beigeLite: rgb(255, 243, 232);
+  --clr-beige: rgb(255, 221, 190);
+  --clr-dark: rgb(16, 33, 16);
+
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+
+  /* box-shadow */
+  --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+    0.25em 0.25em 0.65em rgba(0, 0, 0, 0.23),
+    0.25em 0.25em 0.5em rgba(0, 0, 0, 0.2),
+    0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15),
+    0.17em 0.17em 0.2em rgba(0, 0, 0, 0.1),
+    0.17em 0.17em 0.2em rgba(0, 0, 0, 0.05);
+
+  --bs-lite: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+    0.19em 0.19em 0.45em rgba(0, 0, 0, 0.2),
+    0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15),
+    0.17em 0.17em 0.2em rgba(0, 0, 0, 0.05);
+}
+
 .App {
   text-align: center;
-  background-color: blue;
 }
 
 body {
-  background-color: brown;
-  color: wheat;
+  background-color: var(--clr-green);
+  color: var(--clr-dark);
+  font: var(--ff-primary);
   position: relative;
   margin: 0;
   display: block;
 }
 
+/* navbar */
 .navbar {
-  border: 5px solid burlywood;
+  top: 2em;
+  display: block;
+  position: relative;
+  width: 100%;
 }
 
+.navbar:after {
+  content: "";
+  display: block;
+  border-bottom: 1.5px var(--clr-beige) solid;
+  width: 60%;
+  padding-top: 2em;
+  margin: auto;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2),
+    0 3px 2px -1px rgba(0, 0, 0, 0.15);
+}
+
+.nav_image {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+.nav_image img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+/* todo container */
 .container {
+  background: var(--clr-green) url("./images/todoBackground.jpg") repeat fixed
+    center;
   position: relative;
   margin: auto;
-  top: 5em;
-  width: 20em;
-  border: 3px solid green;
+  top: 4.5em;
+  width: 50%;
   padding: 10px;
+  box-shadow: var(--bs);
 }
 
+/* created to do items */
 .todoItems_container {
+  margin: 2.5em;
   position: relative;
-  height: 200px;
-  border: black 2px solid;
+  height: 15em;
+  /* border: black 1px solid; */
+  overflow: scroll;
+  display: block;
+}
+
+.todoItems__header {
+  margin: auto;
+  text-align: center;
+  padding-top: 3em;
+}
+
+.todoItems__item {
+  margin-top: 0;
+  display: flex;
+  font-size: var(--fs-h3);
+  position: relative;
+  padding-left: 15px;
+}
+
+.todoItems__item:before {
+  content: "";
+  display: block;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  margin-top: 1.8em;
+  border-radius: 50%;
+  background-color: var(--clr-dark);
+  position: absolute;
+}
+
+.todoItems__form {
+  margin-top: 1.1em;
+  display: flex;
+  position: absolute;
+  right: 0;
+  animation: slide-up 500ms ease-in;
+}
+
+.todoItems__str {
+  display: block;
+  animation: slide-up 500ms ease-in;
+}
+
+.todoItem__buttons {
+  padding: 8px 6px;
+  font-size: var(--fs-body);
+  margin-left: 5px;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* todo form container */
+.todoForm {
+  margin: 3em;
+  position: relative;
+  display: flex;
+}
+
+.todoForm__input {
+  display: block;
+  left: 0;
+  /* position: absolute; */
+  width: 50%;
+  padding: 8px 6px;
+  border: none;
+  box-shadow: var(--bs-lite);
+}
+
+.todoForm__button {
+  right: 0;
+  position: absolute;
+}
+
+.todoForm__pty {
+  position: relative;
+  margin: 8px 6px;
+  padding: 4px;
+}
+
+.todoForm__ptyTxt {
+  margin-top: 3px;
+}
+
+/* buttons */
+.button {
+  padding: 8px 6px;
+  font-weight: 700;
+  border: none;
+  box-shadow: var(--bs-lite);
+  background-color: var(--clr-beigeLite);
+}
+
+.button:hover {
+  background-color: var(--clr-green);
+  color: var(--clr-beigeLite);
+  transition: background-color 450ms ease-in-out;
 }

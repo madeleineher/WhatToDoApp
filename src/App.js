@@ -10,9 +10,7 @@ const App = () => {
     <TodoState>
       <Fragment>
         <NavBar />
-        <div className='container'>
-          <Todos />
-        </div>
+        <Todos />
       </Fragment>
     </TodoState>
   );

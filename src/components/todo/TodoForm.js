@@ -8,7 +8,7 @@ const TodoForm = () => {
   const { createTodo } = todoContext;
 
   const [todo, setTodo] = useState({
-    // id: uuidv1(),
+    id: uuidv1(),
     todoStr: "",
     type: "nonPriority",
   });
@@ -25,24 +25,26 @@ const TodoForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form className='todoForm' onSubmit={onSubmit}>
       <input
+        className='todoForm__input'
         type='text'
         name='todoStr'
         value={todoStr}
-        placeholder='Enter a new to-do !'
+        placeholder='Enter A To-Do!'
         onChange={onChange}
       />
       <input
         type='checkbox'
+        className='todoForm__pty'
         name='type'
         value={type}
         checked={type === "priority"}
         onChange={onChange}
       />
-      Priority{" "}
-      <div>
-        <input type='submit' value='Add To-Do !' />
+      <span className='todoForm__ptyTxt'>Priority</span>{" "}
+      <div className='todoForm__button'>
+        <input className='button' type='submit' value='Add To-Do !' />
       </div>
     </form>
   );
