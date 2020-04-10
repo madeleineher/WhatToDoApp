@@ -38,17 +38,19 @@ const TodoForm = () => {
       complete: "false",
     });
   };
-  console.log(type);
+
   return (
     <form className='todoForm' onSubmit={onSubmit}>
-      <input
-        className='todoForm__input'
-        type='text'
-        name='todoStr'
-        value={todoStr}
-        placeholder='Enter A To-Do!'
-        onChange={onChange}
-      />
+      <div className='todoForm__input'>
+        <input
+          className='todoForm__inputForm'
+          type='text'
+          name='todoStr'
+          value={todoStr}
+          placeholder='Enter A To-Do !'
+          onChange={onChange}
+        />
+      </div>
       <div className='todoForm__check pretty p-jelly'>
         <input
           type='checkbox'
@@ -63,7 +65,14 @@ const TodoForm = () => {
       </div>
 
       <div className='todoForm__button'>
-        <input className='button' type='submit' value='Add To-Do !' />
+        <button
+          className='todoForm__btn button'
+          type='submit'
+          value='add'
+          name='add'
+        >
+          Add To-Do <span className='exclaim'>!</span>
+        </button>
       </div>
     </form>
   );

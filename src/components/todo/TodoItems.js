@@ -4,8 +4,7 @@ import TodoContext from "../../context/todo/todoContext";
 const TodoItems = ({ todos }) => {
   const todoContext = useContext(TodoContext);
   const { deleteTodo, checkTodo, uncheckTodo } = todoContext;
-  const classStr = "todoItems__str";
-  const classPty = "todoItems__pty";
+  // const classStr = "todoItems__str";
 
   const onDelete = (todo) => {
     deleteTodo(todo.id);
@@ -18,6 +17,7 @@ const TodoItems = ({ todos }) => {
       checkTodo(todo);
     }
   };
+  console.log(window.innerHeight);
 
   return (
     <div className='todoItems_container'>
@@ -27,34 +27,28 @@ const TodoItems = ({ todos }) => {
             <div
               className={
                 todo.type === "priority"
-                  ? { classPty } + " priority"
-                  : { classPty }
+                  ? "todoItems__str priority"
+                  : "todoItems__str"
               }
             >
-              <h4
-                className={
-                  todo.complete !== "true"
-                    ? { classStr }
-                    : { classStr } + " crossOut"
-                }
-              >
+              <h3 className={todo.complete !== "true" ? "" : "crossOut"}>
                 {todo.todoStr}
-              </h4>
+              </h3>
             </div>
-            <p className='todoItems__form'>
+            <div className='todoItems__buttons'>
               <button
-                className='todoItem__buttons button'
+                className='todoItem__button button'
                 onClick={() => onComplete(todo)}
               >
                 Completed
               </button>
               <button
-                className='todoItem__buttons button'
+                className='todoItem__button button'
                 onClick={() => onDelete(todo)}
               >
                 Delete
               </button>
-            </p>
+            </div>
           </div>
         ))
       ) : (
