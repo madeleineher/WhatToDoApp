@@ -1,3 +1,5 @@
+/* @import "~pretty-checkbox/src/pretty-checkbox.scss"; */
+
 *,
 *::before,
 *::after {
@@ -17,6 +19,8 @@
   --clr-beigeLite: rgb(255, 243, 232);
   --clr-beige: rgb(255, 221, 190);
   --clr-dark: rgb(16, 33, 16);
+  --clr-contrast: #9c6f9c;
+  --clr-contrastDark: #211021;
 
   --fs-h1: 3rem;
   --fs-h2: 2.25rem;
@@ -98,9 +102,9 @@ body {
   margin: 2.5em;
   position: relative;
   height: 15em;
-  /* border: black 1px solid; */
   overflow: scroll;
   display: block;
+  border-bottom: dashed black 0.035em;
 }
 
 .todoItems__header {
@@ -115,6 +119,7 @@ body {
   font-size: var(--fs-h3);
   position: relative;
   padding-left: 15px;
+  animation: slide-up 500ms ease-in;
 }
 
 .todoItems__item:before {
@@ -185,16 +190,23 @@ body {
   position: relative;
   margin: 8px 6px;
   padding: 4px;
+  border: 1px solid black;
 }
 
 .todoForm__ptyTxt {
   margin-top: 3px;
 }
 
+.todoForm__check {
+  /* border: black 1px solid; */
+  margin-left: 1em;
+  margin-top: 0.3em;
+}
+
 /* buttons */
 .button {
   padding: 8px 6px;
-  font-weight: 700;
+  font-weight: 900;
   border: none;
   box-shadow: var(--bs-lite);
   background-color: var(--clr-beigeLite);
@@ -204,4 +216,22 @@ body {
   background-color: var(--clr-green);
   color: var(--clr-beigeLite);
   transition: background-color 450ms ease-in-out;
+}
+
+/* checked */
+.crossOut {
+  text-decoration: line-through;
+  text-shadow: none;
+}
+
+/* important todo */
+.priority {
+  color: var(--clr-green);
+  text-shadow: 0.1em 0.1em 0.7em var(--clr-dark),
+    0.095em 0.095em 0.7em var(--clr-green), 0.09em 0.09em 0.6em var(--clr-dark),
+    0.08em 0.08em 0.5em var(--clr-green), 0.05em 0.04em 3px var(--clr-dark),
+    -0.05em -0.04em 3px var(--clr-dark), 0.1em 0.1em 3px var(--clr-dark),
+    0.095em 0.095em 3px var(--clr-green), 0.09em 0.09em 3px var(--clr-green),
+    0.08em 0.08em 3px var(--clr-dark), 0.05em 0.04em 3px var(--clr-green),
+    -0.05em -0.04em 3px var(--clr-dark);
 }

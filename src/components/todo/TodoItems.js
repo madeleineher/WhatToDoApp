@@ -1,33 +1,60 @@
 import React, { useContext } from "react";
 import TodoContext from "../../context/todo/todoContext";
 
-const TodoItems = () => {
+const TodoItems = ({ todos }) => {
   const todoContext = useContext(TodoContext);
+  const { deleteTodo, checkTodo, uncheckTodo } = todoContext;
+  const classStr = "todoItems__str";
+  const classPty = "todoItems__pty";
 
-  const { todos } = todoContext;
+  const onDelete = (todo) => {
+    deleteTodo(todo.id);
+  };
+
+  const onComplete = (todo) => {
+    if (todo.complete === "true") {
+      uncheckTodo(todo);
+    } else {
+      checkTodo(todo);
+    }
+  };
 
   return (
     <div className='todoItems_container'>
-      {todos.length > 0 ? (
+      {todos.length !== 0 ? (
         todos.map((todo) => (
           <div key={todo.id} className='todoItems__item'>
-            <div>
-              <h5 className='todoItems__str'>{todo.todoStr}</h5>
+            <div
+              className={
+                todo.type === "priority"
+                  ? { classPty } + " priority"
+                  : { classPty }
+              }
+            >
+              <h4
+                className={
+                  todo.complete !== "true"
+                    ? { classStr }
+                    : { classStr } + " crossOut"
+                }
+              >
+                {todo.todoStr}
+              </h4>
             </div>
-            <div>
-              <form className='todoItems__form'>
-                <input
-                  className='todoItem__buttons button'
-                  value='Completed'
-                  type='submit'
-                />
-                <input
-                  className='todoItem__buttons button'
-                  value='Delete'
-                  type='submit'
-                />
-              </form>
-            </div>
+            <p className='todoItems__form'>
+              <button
+                className='todoItem__buttons button'
+                onClick={() => onComplete(todo)}
+              >
+                Completed
+              </button>
+              <button
+                className='todoItem__buttons button'
+                onClick={() => onDelete(todo)}
+              >
+                Delete
+              </button>
+            </p>
           </div>
         ))
       ) : (

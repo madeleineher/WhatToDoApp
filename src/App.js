@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import "./App.css";
+import "../node_modules/pretty-checkbox/dist/pretty-checkbox.css";
 
 import Todos from "./components/todo/Todos";
 import NavBar from "./components/layout/NavBar";
