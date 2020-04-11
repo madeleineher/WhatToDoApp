@@ -254,7 +254,7 @@ body {
 }
 @media (max-width: 800px) {
   .todoItems_container {
-    border-bottom: solid black 0.01em;
+    border-bottom: solid black 0.03em;
   }
   .todoItems__item {
     margin-top: 0;
