@@ -14,7 +14,7 @@ const AlertState = (props) => {
       payload: { msg, type },
     });
 
-    setTimeout(() => dispatch({ type: REMOVE_ALERT }), 5000);
+    setTimeout(() => dispatch({ type: REMOVE_ALERT }), 50000000);
   };
 
   const clearAlert = (alert) => dispatch({ type: REMOVE_ALERT });

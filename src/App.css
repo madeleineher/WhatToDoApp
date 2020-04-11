@@ -486,7 +486,7 @@ body {
 
 .btn_alert {
   background-color: var(--clr-beige);
-  padding: 3px 6px;
+  padding: 0px 6px 2px 6px;
   border: none;
   margin-left: 1em;
   color: var(--clr-dark);
@@ -494,7 +494,19 @@ body {
 }
 
 .button:hover {
-  background-color: var(--clr-greenMed2);
+  background-color: var(--clr-greenMed);
+  color: var(--clr-beigeLite);
+  transition: background-color 450ms ease-in-out;
+}
+
+.button:focus {
+  background-color: var(--clr-greenMed);
+  color: var(--clr-beigeLite);
+  transition: background-color 450ms ease-in-out;
+}
+
+.button:active {
+  background-color: var(--clr-greenMed);
   color: var(--clr-beigeLite);
   transition: background-color 450ms ease-in-out;
 }
