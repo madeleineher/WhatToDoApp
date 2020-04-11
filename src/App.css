@@ -253,6 +253,9 @@ body {
   }
 }
 @media (max-width: 800px) {
+  .todoItems_container {
+    border-bottom: solid black 0.01em;
+  }
   .todoItems__item {
     margin-top: 0;
     margin-bottom: 2.5em;
@@ -285,7 +288,7 @@ body {
     content: "";
     display: block;
     position: absolute;
-    border: 0.05em dashed var(--clr-green);
+    border: 0.02em dashed var(--clr-green);
     bottom: -2.3em;
     left: 0px;
     width: 100%;
