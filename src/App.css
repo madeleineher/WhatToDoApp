@@ -104,6 +104,7 @@ body {
   width: 55%;
   padding: 10px;
   box-shadow: var(--bs);
+  margin-bottom: 3em;
 }
 
 .containerAlert {
