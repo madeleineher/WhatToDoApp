@@ -1,34 +1,33 @@
 import React, { useContext, useState } from "react";
 import TodoContext from "../../context/todo/todoContext";
-// import { v1 as uuidv1 } from "uuid";
+import AlertContext from "../../context/alert/alertContext";
 
 const TodoForm = () => {
   const todoContext = useContext(TodoContext);
+  const alertContext = useContext(AlertContext);
 
   const { createTodo } = todoContext;
 
   const [todo, setTodo] = useState({
-    // id: uuidv1(),
     todoStr: "",
     type: "notPriority",
     complete: "false",
   });
 
   const onChange = (e) => {
-    //  !!! come back and add alert context for empty to-do case
-    // if (e.target.name === 'todoStr' && e.target.value === '')
-    // {
-    // } else {
     setTodo({ ...todo, [e.target.name]: e.target.value });
-    // }
   };
 
   const { todoStr, type } = todo;
 
   const onSubmit = (e) => {
     e.preventDefault();
-    createTodo(todo);
-    clearTodoForm();
+    if (todoStr === "") {
+      alertContext.setAlert("Please enter a to-do");
+    } else {
+      createTodo(todo);
+      clearTodoForm();
+    }
   };
 
   const clearTodoForm = () => {
@@ -58,6 +57,7 @@ const TodoForm = () => {
           value={type !== "priority" ? "priority" : "notPriority"}
           checked={type === "priority"}
           onChange={onChange}
+          style={{ border: "1px solid black" }}
         />
         <div className='state p-success'>
           <label style={{ fontWeight: "900" }}>Priority</label>

@@ -17,7 +17,6 @@ const TodoItems = ({ todos }) => {
       checkTodo(todo);
     }
   };
-  console.log(window.innerHeight);
 
   return (
     <div className='todoItems_container'>

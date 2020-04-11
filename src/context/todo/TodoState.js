@@ -3,15 +3,7 @@ import TodoContext from "./todoContext";
 import TodoReducer from "./todoReducer";
 import { v1 as uuidv1 } from "uuid";
 
-import {
-  CREATE_TODO,
-  CHECK_TODO,
-  // UPDATE_TODO,
-  // SET_CURRENT,
-  // CLEAR_CURRENT,
-  UNCHECK_TODO,
-  DELETE_TODO,
-} from "../types";
+import { CREATE_TODO, CHECK_TODO, UNCHECK_TODO, DELETE_TODO } from "../types";
 
 const TodoState = (props) => {
   const initialState = {

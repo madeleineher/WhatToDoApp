@@ -1,12 +1,4 @@
-import {
-  CREATE_TODO,
-  DELETE_TODO,
-  // UPDATE_TODO,
-  // SET_CURRENT,
-  // CLEAR_CURRENT,
-  CHECK_TODO,
-  UNCHECK_TODO,
-} from "../types";
+import { CREATE_TODO, DELETE_TODO, CHECK_TODO, UNCHECK_TODO } from "../types";
 
 export default (state, action) => {
   switch (action.type) {
